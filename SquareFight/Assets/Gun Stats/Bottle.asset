@@ -21,7 +21,7 @@ MonoBehaviour:
   offset: 3
   shootDelay: 0.3
   reloadDelay: 3
-  clipSize: 314159265
+  clipSize: 1
   bulletPerClip: 1
   explosive: 1
   explosionStats: {fileID: 11400000, guid: da1018d7b8dfd454facdc5cd9d122833, type: 2}

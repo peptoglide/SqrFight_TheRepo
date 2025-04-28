@@ -4825,6 +4825,7 @@ GameObject:
   - component: {fileID: 2350002716459209959}
   - component: {fileID: 4993957716831973201}
   - component: {fileID: 4993957716831973200}
+  - component: {fileID: 5769820032543118542}
   m_Layer: 0
   m_Name: Potion_Explosive
   m_TagString: Untagged
@@ -4965,6 +4966,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.06}
   serializedVersion: 2
   m_Radius: 0.35
+--- !u!114 &5769820032543118542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2350002716459209947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e026e81b177a4904da17014656db5e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 80d7ccb0ad9725e4f84fe64d7081fd65, type: 2}
+  particles: {fileID: 0}
+  effLifetime: 0
 --- !u!1 &2350002717688235281
 GameObject:
   m_ObjectHideFlags: 0
