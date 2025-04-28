@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0b98bc279f74e4baf53a5a6fcb7c0d, type: 3}
+  m_Name: Bottle
+  m_EditorClassIdentifier: 
+  gunName: Bottle
+  bullet: {fileID: 2350002716459209947, guid: cdeb25b0e5924fa48bc3e06179316ea5, type: 3}
+  lifetime: 3
+  force: 20
+  damage: 18
+  damageOffset: 5
+  offset: 3
+  shootDelay: 0.3
+  reloadDelay: 3
+  clipSize: 314159265
+  bulletPerClip: 1
+  explosive: 1
+  explosionStats: {fileID: 11400000, guid: da1018d7b8dfd454facdc5cd9d122833, type: 2}

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0b98bc279f74e4baf53a5a6fcb7c0d, type: 3}
+  m_Name: Platform
+  m_EditorClassIdentifier: 
+  gunName: Platform
+  bullet: {fileID: 4592123936670873832, guid: 82610bf67a31d3948a93a49d153f6435, type: 3}
+  lifetime: Infinity
+  force: 0
+  damage: 0
+  damageOffset: 0
+  offset: 0
+  shootDelay: 0.4
+  reloadDelay: 3
+  clipSize: 314159265
+  bulletPerClip: 1
+  explosive: 0
+  explosionStats: {fileID: 0}
