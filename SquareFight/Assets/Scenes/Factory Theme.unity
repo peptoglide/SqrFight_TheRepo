@@ -1184,6 +1184,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 795760705908784153, guid: bad064f774a355746b7848ee3a2dc3d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bad064f774a355746b7848ee3a2dc3d3, type: 3}
 --- !u!1001 &1005068109093674687
