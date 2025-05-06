@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: 134270053184225419}
   - component: {fileID: 134270053184225418}
   - component: {fileID: 134270053184225417}
+  - component: {fileID: 8365261808028075161}
   m_Layer: 3
   m_Name: Player 2
   m_TagString: Player 2
@@ -545,6 +546,19 @@ MonoBehaviour:
   indicator: {fileID: 1758738566043500105, guid: ffb3d73d3433ef44d9356b852dff097e, type: 3}
   effects: {fileID: 7809968852539146388, guid: 4ef86b2ed210a744e81294e6eac12cf6, type: 3}
   effLifetime: 4
+--- !u!114 &8365261808028075161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134270053184225527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d0775f9fb462c4c9c3277d9c7f7443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 0
 --- !u!1001 &134270053358913371
 PrefabInstance:
   m_ObjectHideFlags: 0

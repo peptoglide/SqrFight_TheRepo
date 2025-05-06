@@ -32,14 +32,19 @@ public class Shoot : MonoBehaviour
     Transform red;
     Transform blue;
     GameManager manager;
+    InputManager input_manager;
     void Start()
     {
+        Debug.Log("Hello?");
         manager = GameManager.instance;
         red = GameObject.FindGameObjectWithTag("Player 2").transform;
         blue = GameObject.FindGameObjectWithTag("Player").transform;
-        isShooting = false;
+        input_manager = GetComponentInParent<InputManager>();
         cooldown = 0;
 
+        // Abandon weapon on command
+        input_manager.onDiscardWeapon += TryToBreakGun;
+        Debug.Log($"My input manager is {input_manager.gameObject.transform.name}", gameObject);
         if (stats == null) return;
         currentMag = stats.clipSize;
 
@@ -54,7 +59,7 @@ public class Shoot : MonoBehaviour
 
         manager.UpdateGunUI(currentMag, stats, team);
         cooldown += Time.deltaTime;
-        if (isShooting && cooldown >= stats.shootDelay && currentMag > 0 && !isReloading)
+        if (input_manager.isShooting && cooldown >= stats.shootDelay && currentMag > 0 && !isReloading)
         {
             Fire();
             // Reset variables
@@ -64,11 +69,6 @@ public class Shoot : MonoBehaviour
 
         if(currentMag <= 0 && !isReloading)
         {
-            /*
-            isReloading = true;
-            Invoke(nameof(Reload), stats.reloadDelay);
-            */
-
             // Break gun
             GunBreak();
         }
@@ -76,49 +76,18 @@ public class Shoot : MonoBehaviour
 
         // Aim
         if (!autoAim) return;
-        if(team == Team.Blue)
-        {
+        if(team == Team.Blue){
             Aim(red);
-            // Abandon weapon
-            if (Input.GetKeyDown(KeyCode.Q) && stats != null)
-            {
-                GunBreak();
-            }
         }
-        else if(team == Team.Red)
-        {
+        else if(team == Team.Red){
             Aim(blue);
-            if (Input.GetKeyDown(KeyCode.Period) && stats != null)
-            {
-                GunBreak();
-            }
         }
-
-        if(team == Team.Red)
-        {
-            if (Input.GetKeyDown(KeyCode.Slash))
-            {
-                isShooting = true;
-            }
-            if (Input.GetKeyUp(KeyCode.Slash))
-            {
-                isShooting = false;
-            }
-        }
-
-        if (team == Team.Blue)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                isShooting = true;
-            }
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                isShooting = false;
-            }
-        }
-
     }
+
+    void TryToBreakGun(){
+        if(stats == null) return;
+        GunBreak();
+    } 
 
     public void Fire()
     {

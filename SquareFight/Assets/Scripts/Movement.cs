@@ -4,22 +4,18 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(InputManager))]
 public class Movement : MonoBehaviour
 {
     [System.Serializable]
     public class MovementStats
     {
-        public float maxJoystickToMove = .1f;
         public float moveSpeed, counterMovementSpeed;
         public float jumpForce;
-        public float maxToJump = 0.85f;
-        public float jumpChargeMax, jumpChargeSpeed;
         public float groundCastDist = .75f;
     }
 
     public MovementStats stats;
-    public Joystick joystick;
-    public Slider jumpSlider;
     public LayerMask whatIsGround;
     [Header("Grounded")]
     public Vector2 groundCheckPos;
@@ -30,8 +26,8 @@ public class Movement : MonoBehaviour
     public Shoot gun;
 
     // Movement
+    InputManager input_manager;
     float x;
-    float jumpCharge;
     Rigidbody2D rb ;
 
     // Testing
@@ -43,24 +39,19 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         checkPos = rb.position + groundCheckPos;
-        jumpSlider.maxValue = stats.jumpChargeMax;
+        input_manager = GetComponent<InputManager>();
+        input_manager.onJumpPressed += TryToJump;
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetInput();
-        //Debug.Log(IsGrounded());
+        x = input_manager.horizontalMovement; // Get horizontal movement
     }
 
     private void FixedUpdate()
     {
         DoMovement();
-        if (jumpCharge >= stats.jumpChargeMax && IsGrounded())
-        {
-            Jump();
-            jumpCharge = 0f;
-        }
     }
 
     void DoMovement()
@@ -69,65 +60,9 @@ public class Movement : MonoBehaviour
         rb.AddForce(-stats.counterMovementSpeed * rb.velocity * Vector2.right, ForceMode2D.Force);
     }
 
-    void GetInput()
-    {
-        
-        if(joystick.Horizontal >= stats.maxJoystickToMove)
-        {
-            x = 1f;
-        }
-        else if(joystick.Horizontal <= -stats.maxJoystickToMove)
-        {
-            x = -1f;
-        }
-        else
-        {
-            x = 0f;
-        }
-
-        // PC testing
-        if (x == 0f) 
-        {
-            if(team == Team.Blue)
-            {
-                if (Input.GetKey(KeyCode.A))
-                {
-                    x = -1f;
-                }
-                if (Input.GetKey(KeyCode.D))
-                {
-                    x = 1f;
-                }
-                if (Input.GetKeyDown(KeyCode.W) && IsGrounded())
-                {
-                    Jump();
-                }
-            }
-
-            if (team == Team.Red)
-            {
-                if (Input.GetKey(KeyCode.LeftArrow))
-                {
-                    x = -1f;
-                }
-                if (Input.GetKey(KeyCode.RightArrow))
-                {
-                    x = 1f;
-                }
-                if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded())
-                {
-                    Jump();
-                }
-            }
-        }
-        
-
-        // Jump
-        if(joystick.Vertical >= stats.maxToJump && IsGrounded())
-        {
-            jumpCharge += stats.jumpChargeSpeed * Time.deltaTime;
-            jumpSlider.value = jumpCharge;
-        }
+    void TryToJump(){
+        if(!IsGrounded()) return;
+        Jump();
     }
 
     void Jump()

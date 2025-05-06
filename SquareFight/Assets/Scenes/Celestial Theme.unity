@@ -24552,6 +24552,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CelestialLightSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 2627088373159703676, guid: 2a1e52cb2f599a947b6478fcc78142db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2627088373159703677, guid: 2a1e52cb2f599a947b6478fcc78142db, type: 3}
       propertyPath: m_RootOrder
       value: 4
