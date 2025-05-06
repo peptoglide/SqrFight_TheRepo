@@ -32,7 +32,7 @@ Material:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
     - _Day_Time_Speed: 0.1
-    - _Transparency: 0.8
+    - _Transparency: 0.6
     m_Colors:
     - _Color: {r: 0.6782094, g: 0.3066038, b: 1, a: 1}
   m_BuildTextureStacks: []

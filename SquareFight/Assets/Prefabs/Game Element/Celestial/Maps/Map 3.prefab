@@ -2765,6 +2765,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water
       objectReference: {fileID: 0}
+    - target: {fileID: 3861347846349202101, guid: 131e4dd00d2777c4f8b311799db8b3e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3861347846487865864, guid: 131e4dd00d2777c4f8b311799db8b3e9, type: 3}
       propertyPath: m_Color.a
       value: 0.34901962
