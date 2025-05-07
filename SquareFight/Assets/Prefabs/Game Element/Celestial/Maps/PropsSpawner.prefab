@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2714508365910506523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2714508365910506522}
+  - component: {fileID: 2714508365910506517}
+  m_Layer: 0
+  m_Name: PropsSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2714508365910506522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2714508365910506523}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.58, y: 10.32, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2714508365910506517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2714508365910506523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c431a0b8f41b24944a1e4ecd1b82cee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawns:
+  - obj: {fileID: 6523172538145107452, guid: 587fa7aee944f8d4894f04d704020eeb, type: 3}
+    probability: 0.01
+    addForce: 0
+    additionalForce: 0
+  - obj: {fileID: 6523172538145107452, guid: 9da4f95fefe0c6749bbe6c0b0aef9317, type: 3}
+    probability: 0.025
+    addForce: 0
+    additionalForce: 0
+  - obj: {fileID: 6523172538145107452, guid: 9414185357578f645b4edc15436835a7, type: 3}
+    probability: 0.045
+    addForce: 0
+    additionalForce: 0
+  - obj: {fileID: 6523172538145107452, guid: 278d03765cdfc1141939cb834b7de56e, type: 3}
+    probability: 0.075
+    addForce: 0
+    additionalForce: 0
+  - obj: {fileID: 2350002716459209947, guid: 634acdc339590e54f886a03e4a1c5453, type: 3}
+    probability: 0.125
+    addForce: 1
+    additionalForce: 15
+  - obj: {fileID: 8245895599867296534, guid: 23879f1177ccbf345b7ac00f003db4c0, type: 3}
+    probability: 0.25
+    addForce: 1
+    additionalForce: 10
+  spawnZone:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 17.5, y: 4.84, z: 1}
+  probDecrease: 1.4

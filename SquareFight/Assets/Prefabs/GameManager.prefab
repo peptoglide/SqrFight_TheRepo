@@ -58,9 +58,7 @@ MonoBehaviour:
   specifiedMap: 0
   mapIndex: 5
   globalDamageMultiplier: 1
-  rateIncrease: 3
-  redScore: 0
-  blueScore: 0
+  rateIncrease: 5
   redScoreText: {fileID: 0}
   blueScoreText: {fileID: 0}
   damageMultiplierText: {fileID: 0}

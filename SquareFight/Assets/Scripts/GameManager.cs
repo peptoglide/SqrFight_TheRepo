@@ -29,8 +29,8 @@ public class GameManager : MonoBehaviour
     public float rateIncrease = 2f;
 
     // Scores
-    public int redScore;
-    public int blueScore;
+    public int redScore { get; private set; }
+    public int blueScore { get; private set; }
 
     [Header("UI")]
     public TextMeshProUGUI redScoreText;

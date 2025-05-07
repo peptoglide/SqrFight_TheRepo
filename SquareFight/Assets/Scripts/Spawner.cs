@@ -17,8 +17,8 @@ public class Spawner : MonoBehaviour
     public Bounds spawnZone;
     float prob;
 
-    [Tooltip("Spawn rate is divided by this")]
-    public float probDenominator = 1f;
+    [Tooltip("Spawn rate is divided by this, or, spawn rate gets reduced by this many times")]
+    public float probDecrease = 1f;
 
     void Start()
     {
@@ -28,7 +28,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        prob = Random.Range(0f, 100f) * probDenominator / GameManager.instance.rateIncrease;
+        prob = Random.Range(0f, 100f) * probDecrease / GameManager.instance.rateIncrease;
         // Checking
         for (int i = 0; i < spawns.Length; i++)
         {
