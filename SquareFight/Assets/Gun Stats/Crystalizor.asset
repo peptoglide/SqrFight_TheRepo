@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0b98bc279f74e4baf53a5a6fcb7c0d, type: 3}
+  m_Name: Crystalizor
+  m_EditorClassIdentifier: 
+  gunName: Crystalizor
+  bullet: {fileID: 8245895599867296534, guid: bd170f1f004a8304c82d12e5bf1c4084, type: 3}
+  lifetime: 5
+  force: 35
+  damage: 50
+  damageOffset: 10
+  offset: 0
+  shootDelay: 1.75
+  reloadDelay: 3
+  clipSize: 1
+  bulletPerClip: 1
+  explosive: 0
+  explosionStats: {fileID: 0}

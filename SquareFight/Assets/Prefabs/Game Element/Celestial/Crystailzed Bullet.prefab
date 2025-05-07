@@ -212,8 +212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a2836dbb4beebf45b83ba03882f08c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
-  repelForce: 20
+  damage: 15
+  repelForce: 15
   effects: []
 --- !u!114 &5400075131040376764
 MonoBehaviour:
@@ -227,9 +227,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac272a22dd6bf934daa9f2a175b99d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfSpikes: 15
+  numberOfSpikes: 12
   lifetime: 6
-  damage: 4
+  damage: 6.5
   force: 22
   explosive: 1
   explosionStats: {fileID: 11400000, guid: faff3c6ed17afac41949890659740ab0, type: 2}
@@ -237,6 +237,7 @@ MonoBehaviour:
   spike: {fileID: 1084950002545952725, guid: 3e1ff0138f73a4b44ae3e7632e0a89bc, type: 3}
   particles: {fileID: 6921469121378159825, guid: b37938df101db9044a77263855d8eae0, type: 3}
   explodeOnContact: 1
+  shardsInactiveTime: 0.1
 --- !u!50 &1073273073587751805
 Rigidbody2D:
   serializedVersion: 4
@@ -271,6 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playSound: 1
+  destroyOnCollision: 1
   stats: {fileID: 0}
   eff: {fileID: 0}
   effLifetime: 0

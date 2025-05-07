@@ -229,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfSpikes: 12
   lifetime: 6
-  damage: 17.5
+  damage: 10
   force: 27.5
   explosive: 1
   explosionStats: {fileID: 11400000, guid: 53747747c5b6f3d45b509e4c165db301, type: 2}
@@ -237,6 +237,7 @@ MonoBehaviour:
   spike: {fileID: 1084950002545952725, guid: 3e1ff0138f73a4b44ae3e7632e0a89bc, type: 3}
   particles: {fileID: 0}
   explodeOnContact: 0
+  shardsInactiveTime: 0.04
 --- !u!50 &1073273073587751805
 Rigidbody2D:
   serializedVersion: 4
@@ -270,6 +271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e026e81b177a4904da17014656db5e48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 619798108d9ce24439f451fcdef031fa, type: 2}
+  stats: {fileID: 11400000, guid: 6d95982f5fe65e147bb45d1668296f99, type: 2}
   particles: {fileID: 0}
   effLifetime: 0
