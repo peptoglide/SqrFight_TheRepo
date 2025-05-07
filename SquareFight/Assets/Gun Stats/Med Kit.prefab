@@ -358,7 +358,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   vfx: {fileID: 7809968852539146388, guid: 7306871f1a31c84479b6e4e872f57eda, type: 3}
-  healAmount: 55
+  playSound: 1
+  healAmount: 35
   damageAmount: 0
   speedIncrease: 0
 --- !u!50 &3134980800642847272

@@ -460,16 +460,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    maxJoystickToMove: 0.3
     moveSpeed: 14.5
     counterMovementSpeed: 1.9
     jumpForce: 15
-    maxToJump: 0.75
-    jumpChargeMax: 0.05
-    jumpChargeSpeed: 1.5
     groundCastDist: 0.1
-  joystick: {fileID: 0}
-  jumpSlider: {fileID: 134270052422012040}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 576
@@ -537,7 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc04555c72b1a36479c59ee7867895e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 300
+  maxHealth: 200
   isPlayer: 1
   currentHealth: 0
   team: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
   bullet: {fileID: 150274708032642692, guid: c6d8cb3a92b1f7a4db908ac163256baf, type: 3}
   lifetime: 3
   force: 30
-  damage: 45
+  damage: 35
   damageOffset: 5
   offset: 0
   shootDelay: 1.5

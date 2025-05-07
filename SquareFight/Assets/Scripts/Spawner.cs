@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         prob = Random.Range(0f, 100f) * probDenominator / GameManager.instance.rateIncrease;
         // Checking
