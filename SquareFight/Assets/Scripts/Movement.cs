@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
         public int jumpCount = 1;
         public float coyoteTime = 0.1f;
         public float jumpDelay = 0.15f;
+        public float bufferDuration = 0.15f;
     }
 
     public MovementStats stats;
@@ -32,6 +33,7 @@ public class Movement : MonoBehaviour
     int _jump_count;
     float _time_off_ground = 0f;
     float _time_not_jumped = 0f;
+    float _time_since_last_jump_press = 0f;
     Rigidbody2D rb ;
 
     // Testing
@@ -46,25 +48,31 @@ public class Movement : MonoBehaviour
         input_manager = GetComponent<InputManager>();
 
         // Subscribe jumping events to key presses
-        input_manager.onJumpPressed += TryToJump;
+        input_manager.onJumpPressed += RegisterJumpPress;
         input_manager.onJumpReleased += JumpCutoff;
 
         _time_off_ground = 0f;
         _time_not_jumped = 0f;
+        _time_since_last_jump_press = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
         _time_not_jumped += Time.deltaTime;
+        _time_since_last_jump_press += Time.deltaTime;
         x = input_manager.horizontalMovement; // Get horizontal movement
+
+        // Reset count if able to jump and grounded
         if(IsGrounded() && _time_not_jumped >= stats.jumpDelay){
             _jump_count = stats.jumpCount;
             _time_off_ground = 0f;
         }
         else _time_off_ground += Time.deltaTime;
         
+        // If leave platform without jumping, jump count is lowered by one
         if(_jump_count == stats.jumpCount && !(_time_off_ground <= stats.coyoteTime)) _jump_count--;
+        if(_time_since_last_jump_press <= stats.bufferDuration) TryToJump();
     }
 
     private void FixedUpdate()
@@ -78,7 +86,12 @@ public class Movement : MonoBehaviour
         rb.AddForce(-stats.counterMovementSpeed * rb.velocity * Vector2.right, ForceMode2D.Force);
     }
 
+    void RegisterJumpPress(){
+        _time_since_last_jump_press = 0f;
+    }
+
     void TryToJump(){
+        // Positive jump count and jump cooldown is over
         if(_jump_count <= 0 || _time_not_jumped < stats.jumpDelay) return;
         Jump();
     }
@@ -91,6 +104,7 @@ public class Movement : MonoBehaviour
 
     void Jump()
     {
+        _time_since_last_jump_press = 150f;
         // Reset vertical movement
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(stats.jumpForce * Vector2.up, ForceMode2D.Impulse);
