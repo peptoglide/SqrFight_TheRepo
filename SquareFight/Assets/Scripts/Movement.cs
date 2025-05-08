@@ -12,6 +12,8 @@ public class Movement : MonoBehaviour
         public float jumpForce;
         public float groundCastDist = .75f;
         public int jumpCount = 1;
+        public float coyoteTime = 0.1f;
+        public float jumpDelay = 0.15f;
     }
 
     public MovementStats stats;
@@ -28,6 +30,8 @@ public class Movement : MonoBehaviour
     InputManager input_manager;
     float x;
     int _jump_count;
+    float _time_off_ground = 0f;
+    float _time_not_jumped = 0f;
     Rigidbody2D rb ;
 
     // Testing
@@ -40,18 +44,27 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         checkPos = rb.position + groundCheckPos;
         input_manager = GetComponent<InputManager>();
+
+        // Subscribe jumping events to key presses
         input_manager.onJumpPressed += TryToJump;
         input_manager.onJumpReleased += JumpCutoff;
+
+        _time_off_ground = 0f;
+        _time_not_jumped = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        _time_not_jumped += Time.deltaTime;
         x = input_manager.horizontalMovement; // Get horizontal movement
-        if(IsGrounded()){
+        if(IsGrounded() && _time_not_jumped >= stats.jumpDelay){
             _jump_count = stats.jumpCount;
+            _time_off_ground = 0f;
         }
-        if(_jump_count == stats.jumpCount && !IsGrounded()) _jump_count--;
+        else _time_off_ground += Time.deltaTime;
+        
+        if(_jump_count == stats.jumpCount && !(_time_off_ground <= stats.coyoteTime)) _jump_count--;
     }
 
     private void FixedUpdate()
@@ -66,7 +79,7 @@ public class Movement : MonoBehaviour
     }
 
     void TryToJump(){
-        if(_jump_count <= 0) return;
+        if(_jump_count <= 0 || _time_not_jumped < stats.jumpDelay) return;
         Jump();
     }
 
@@ -82,6 +95,7 @@ public class Movement : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(stats.jumpForce * Vector2.up, ForceMode2D.Impulse);
         _jump_count--;
+        _time_not_jumped = 0f;
     }
 
     bool IsGrounded()

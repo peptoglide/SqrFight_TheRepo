@@ -228,9 +228,11 @@ MonoBehaviour:
   stats:
     moveSpeed: 14.5
     counterMovementSpeed: 1.9
-    jumpForce: 16
+    jumpForce: 17
     groundCastDist: 0.1
     jumpCount: 1
+    coyoteTime: 0.125
+    jumpDelay: 0.2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 576
