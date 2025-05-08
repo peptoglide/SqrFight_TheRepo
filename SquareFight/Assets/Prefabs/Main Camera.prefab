@@ -104,7 +104,7 @@ MonoBehaviour:
   - {fileID: 0}
   chaseSpeed: 0.5
   offset: {x: 0, y: 0, z: -12.5}
-  minMaxZoom: {x: 7.5, y: 50}
+  minMaxZoom: {x: 7.5, y: 40}
   maxDistance: 125
 --- !u!114 &6916586133712938852
 MonoBehaviour:

@@ -4942,7 +4942,7 @@ MonoBehaviour:
   indiSizeMalnip: 1
   playSound: 1
   explodeOnStart: 1
-  explodeDelay: 0.6
+  explodeDelay: 0.75
   doShake: 1
   mag: 0
   roughness: 0
