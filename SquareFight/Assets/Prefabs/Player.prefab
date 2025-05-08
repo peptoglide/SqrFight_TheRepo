@@ -230,6 +230,7 @@ MonoBehaviour:
     counterMovementSpeed: 1.9
     jumpForce: 15
     groundCastDist: 0.1
+    jumpCount: 2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 576

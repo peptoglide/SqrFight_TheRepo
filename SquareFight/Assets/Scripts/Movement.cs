@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +11,7 @@ public class Movement : MonoBehaviour
         public float moveSpeed, counterMovementSpeed;
         public float jumpForce;
         public float groundCastDist = .75f;
+        public int jumpCount = 1;
     }
 
     public MovementStats stats;
@@ -28,6 +27,7 @@ public class Movement : MonoBehaviour
     // Movement
     InputManager input_manager;
     float x;
+    int _jump_count;
     Rigidbody2D rb ;
 
     // Testing
@@ -47,6 +47,10 @@ public class Movement : MonoBehaviour
     void Update()
     {
         x = input_manager.horizontalMovement; // Get horizontal movement
+        if(IsGrounded()){
+            _jump_count = stats.jumpCount;
+        }
+        if(_jump_count == stats.jumpCount && !IsGrounded()) _jump_count--;
     }
 
     private void FixedUpdate()
@@ -61,13 +65,16 @@ public class Movement : MonoBehaviour
     }
 
     void TryToJump(){
-        if(!IsGrounded()) return;
+        if(_jump_count <= 0) return;
         Jump();
     }
 
     void Jump()
     {
+        // Reset vertical movement
+        rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(stats.jumpForce * Vector2.up, ForceMode2D.Impulse);
+        _jump_count--;
     }
 
     bool IsGrounded()
