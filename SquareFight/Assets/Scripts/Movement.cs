@@ -41,6 +41,7 @@ public class Movement : MonoBehaviour
         checkPos = rb.position + groundCheckPos;
         input_manager = GetComponent<InputManager>();
         input_manager.onJumpPressed += TryToJump;
+        input_manager.onJumpReleased += JumpCutoff;
     }
 
     // Update is called once per frame
@@ -67,6 +68,12 @@ public class Movement : MonoBehaviour
     void TryToJump(){
         if(_jump_count <= 0) return;
         Jump();
+    }
+
+    void JumpCutoff(){
+        if(rb.velocity.y <= 0f) return;
+        float cutoffRate = 0.4f;
+        rb.AddForce(cutoffRate * rb.velocity.y * Vector2.down, ForceMode2D.Impulse);
     }
 
     void Jump()
