@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour
     // Whether the bullet can interact with objects with Health
     bool is_bullet_active = true;
 
-    void Start()
+    public void Start()
     {
         is_bullet_active = true;
         // Queue a destruction

@@ -4,32 +4,38 @@ using UnityEngine;
 
 public class SpikeBall : MonoBehaviour
 {
-    [SerializeField] int numberOfSpikes;
+    
+    [Header("Shard properties")]
     [SerializeField] float lifetime;
     [SerializeField] float damage;
     [SerializeField] float force;
     [SerializeField] bool explosive;
     [SerializeField] ExplosionStats explosionStats;
 
+    [Header("Spike ball properties")]
+    [SerializeField] int numberOfSpikes;
+    
+    [Tooltip("This object will explode after this many seconds")]
     [SerializeField] float explosionDelay;
     [SerializeField] GameObject spike;
 
     [SerializeField] GameObject particles;
     GunStats bulletStats;
 
-    [Tooltip("Whether spike ball explodes on contact")]
+    [Tooltip("Whether this spike ball explodes on contact")]
     [SerializeField] bool explodeOnContact;
     [SerializeField] float shardsInactiveTime = 0.04f;
 
 
     void Start()
     {
-        bulletStats = new();
+        bulletStats = ScriptableObject.CreateInstance<GunStats>();
         bulletStats.damage = damage;
         bulletStats.damageOffset = 0f;
         bulletStats.lifetime = lifetime;
         bulletStats.explosive = explosive;
-        if(explosionStats != null) bulletStats.explosionStats = explosionStats;
+        
+        if (explosionStats != null) bulletStats.explosionStats = explosionStats;
         Invoke(nameof(Explode), explosionDelay);
     }
 
@@ -69,6 +75,7 @@ public class SpikeBall : MonoBehaviour
             {
                 bullet.stats = bulletStats;
                 bullet.SetSleepTime(shardsInactiveTime);
+                bullet.Start();
             }
         }
     }
