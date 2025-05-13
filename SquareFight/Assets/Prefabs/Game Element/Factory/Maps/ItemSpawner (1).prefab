@@ -62,10 +62,10 @@ MonoBehaviour:
     addForce: 0
     additionalForce: 0
   - obj: {fileID: 372609842486458388, guid: 938d9961262a2a047803cd03d0f8d162, type: 3}
-    probability: 0.175
+    probability: 0.12
     addForce: 0
     additionalForce: 0
   spawnZone:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 6, y: 3.5, z: 1}
-  probDenominator: 1
+  probDecrease: 1

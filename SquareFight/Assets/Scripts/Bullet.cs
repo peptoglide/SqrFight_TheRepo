@@ -86,6 +86,14 @@ public class Bullet : MonoBehaviour
     }
 
     /// <summary>
+    /// Multiply the damage output by given argument
+    /// </summary>
+    /// <param name="multiplier"></param>
+    public void DamageManip(float multiplier){
+        damage *= multiplier;
+    }
+
+    /// <summary>
     /// For the first how many seconds is the bullet inactive against objects with health
     /// </summary>
     /// <param name="time">The duration given in seconds</param>

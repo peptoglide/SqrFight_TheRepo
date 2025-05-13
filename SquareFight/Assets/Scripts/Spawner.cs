@@ -37,7 +37,7 @@ public class Spawner : MonoBehaviour
                 Vector3 spawnPos = spawnZone.center + new Vector3(Random.Range(-spawnZone.extents.x, spawnZone.extents.x),
                     Random.Range(-spawnZone.extents.y, spawnZone.extents.y), 0f);
 
-                GameObject obj = Instantiate(spawns[i].obj, spawnPos, Quaternion.identity);
+                GameObject obj = Instantiate(spawns[i].obj, transform.position + spawnPos, Quaternion.identity);
                 if (spawns[i].addForce && obj.TryGetComponent(out Rigidbody2D rb))
                 {
                     rb.AddForce(spawns[i].additionalForce * Random.insideUnitCircle, ForceMode2D.Impulse);
