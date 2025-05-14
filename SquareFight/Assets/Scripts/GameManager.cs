@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     GunDisplay gunNameRed;
     GunDisplay gunNameBlue;
 
+    public float time_elapsed {get; private set;}
+
     int turns;
     void Awake()
     {
@@ -82,12 +84,13 @@ public class GameManager : MonoBehaviour
             maps[mapIndex].SetActive(true);
         }
         else maps[Random.Range(0, maps.Length)].SetActive(true);
+        time_elapsed = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        time_elapsed += Time.deltaTime;
     }
 
     public void CountRedScore(int redScoreNumber)

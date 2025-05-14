@@ -98,6 +98,7 @@ public class Shoot : MonoBehaviour
             {
                 float offsetForce = Random.Range(-stats.offset, stats.offset);
                 Vector2 force = transform.right * stats.force + Random.Range(-offsetForce, offsetForce) * transform.up;
+                force += new Vector2(0f, stats.verticalAdd);
 
                 rb.AddForce(force, ForceMode2D.Impulse);
             }
@@ -106,6 +107,14 @@ public class Shoot : MonoBehaviour
             {
                 bull.stats = stats;
                 bull.damageMultiplier = damageMultiplier;
+                // Tracking
+                if(!stats.tracking) continue;
+                if(team == Team.Blue){
+                    bull.Track(red);
+                }
+                else if(team == Team.Red){
+                    bull.Track(blue);
+                }
             }
         }
         if (playSound)
