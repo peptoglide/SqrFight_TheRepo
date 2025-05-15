@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     public event Action onJumpReleased;
     public bool isShooting { get; private set; }
     public event Action onDiscardWeapon;
+    public event Action onInteract;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,7 @@ public class InputManager : MonoBehaviour
             {
                 onDiscardWeapon?.Invoke();
             }
+            if(Input.GetKeyDown(KeyCode.S)) onInteract?.Invoke();
         }
 
         if (team == Team.Red)
@@ -83,6 +85,7 @@ public class InputManager : MonoBehaviour
             {
                 onDiscardWeapon?.Invoke();
             }
+            if(Input.GetKeyDown(KeyCode.DownArrow)) onInteract?.Invoke();
         }
     }
 }
