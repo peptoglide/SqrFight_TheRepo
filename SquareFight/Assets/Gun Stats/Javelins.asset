@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Javelins
   m_EditorClassIdentifier: 
   gunName: Javelins
-  bullet: {fileID: 150274708032642692, guid: 0c1dd1c2d5af54e41972e013ac216f10, type: 3}
+  bullet: {fileID: 150274708032642692, guid: c1ec4831b4bc35147a0e3048e0742ac3, type: 3}
   lifetime: 5
   force: 22
-  damage: 0
+  damage: 2.5
   damageOffset: 0
   offset: 0
   verticalAdd: 12
