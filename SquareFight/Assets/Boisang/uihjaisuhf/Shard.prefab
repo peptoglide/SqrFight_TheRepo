@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e026e81b177a4904da17014656db5e48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: cc73c85798ec789449feec29ef60c090, type: 2}
+  stats: {fileID: 11400000, guid: 388eaa8416d80fc48a744cac14bd587b, type: 2}
   particles: {fileID: 0}
   effLifetime: 2
 --- !u!61 &1856140927045598962

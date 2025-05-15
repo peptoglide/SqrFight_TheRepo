@@ -13,15 +13,20 @@ MonoBehaviour:
   m_Name: Comet
   m_EditorClassIdentifier: 
   gunName: Comet
-  bullet: {fileID: 150274708032642692, guid: 4a85c851fa52079448cc01cb8b923f97, type: 3}
-  lifetime: 2.5
-  force: 19
-  damage: 5.5
+  bullet: {fileID: 150274708032642692, guid: 4c622f35458089241b0ce0eda5c9f8c5, type: 3}
+  lifetime: 5
+  force: 40
+  damage: 7
   damageOffset: 1.5
-  offset: 1.5
-  shootDelay: 0.15
+  offset: 0
+  verticalAdd: 0
+  shootDelay: 0.75
   reloadDelay: 3
-  clipSize: 35
+  clipSize: 5
   bulletPerClip: 1
   explosive: 0
   explosionStats: {fileID: 0}
+  tracking: 0
+  trackDelay: 0
+  trackTurnSpeed: 0
+  trackSpeed: 0

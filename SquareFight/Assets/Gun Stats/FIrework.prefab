@@ -4827,7 +4827,7 @@ GameObject:
   - component: {fileID: 4993957716831973200}
   - component: {fileID: -7247687224437265852}
   m_Layer: 0
-  m_Name: Pipebomb
+  m_Name: FIrework
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4981,7 +4981,7 @@ MonoBehaviour:
   playSound: 1
   destroyOnCollision: 1
   stats: {fileID: 0}
-  eff: {fileID: 1637231648589920336, guid: 9d98155458ea0a94e9d49c3872287fd9, type: 3}
+  eff: {fileID: 0}
   effLifetime: 3
   isExplosive: 1
   explosionStats: {fileID: 0}

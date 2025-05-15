@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0b98bc279f74e4baf53a5a6fcb7c0d, type: 3}
-  m_Name: HuoLong 1
+  m_Name: Fireworks
   m_EditorClassIdentifier: 
   gunName: Fireworks
-  bullet: {fileID: 2350002716459209947, guid: bcec35cb974bd984cabf14bcbc776eb7, type: 3}
+  bullet: {fileID: 2350002716459209947, guid: 9f0d68e13f23eca45b899bb1e00aa19d, type: 3}
   lifetime: 3
-  force: 45
+  force: 65
   damage: 15
   damageOffset: 5
   offset: 2
-  shootDelay: 0.25
-  reloadDelay: 1
-  clipSize: 12445
+  shootDelay: 0.65
+  reloadDelay: 3
+  clipSize: 3
   bulletPerClip: 1
   explosive: 1
   explosionStats: {fileID: 11400000, guid: 1951a60fb766260488ebf15adcebe2cb, type: 2}

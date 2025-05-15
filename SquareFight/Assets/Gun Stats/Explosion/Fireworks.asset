@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd3599c66d18a3047a454a3d742cd3cb, type: 3}
-  m_Name: Potion 1
+  m_Name: Fireworks
   m_EditorClassIdentifier: 
-  force: 90
-  radius: 7
-  minDamage: 12
-  maxDamage: 50
+  force: 170
+  radius: 5.5
+  minDamage: 5
+  maxDamage: 25

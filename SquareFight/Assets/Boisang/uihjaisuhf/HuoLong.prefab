@@ -4827,7 +4827,7 @@ GameObject:
   - component: {fileID: 4993957716831973200}
   - component: {fileID: -7247687224437265852}
   m_Layer: 0
-  m_Name: FancyPipebomb
+  m_Name: HuoLong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4870,7 +4870,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d8a6cdb0742d0ed4cb513d8c97402efd, type: 2}
+  - {fileID: 2100000, guid: a380194998328bd44ba7e818e7e73af5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4937,8 +4937,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyOnExplosion: 1
   stats: {fileID: 11400000, guid: 1951a60fb766260488ebf15adcebe2cb, type: 2}
-  particles: {fileID: 3337722730026958225, guid: 98010c668332c194cbdf0fa79890720e, type: 3}
-  effLifetime: 7
+  particles: {fileID: 1637231648589920336, guid: 8daa58c80cffcdc41819af2c140e9a38, type: 3}
+  effLifetime: 4
   rangeIndicator: {fileID: 0}
   indiSizeMalnip: 1
   playSound: 1
@@ -4981,8 +4981,8 @@ MonoBehaviour:
   playSound: 1
   destroyOnCollision: 1
   stats: {fileID: 0}
-  eff: {fileID: 0}
-  effLifetime: 3
+  eff: {fileID: 1637231648589920336, guid: 9d98155458ea0a94e9d49c3872287fd9, type: 3}
+  effLifetime: 4
   isExplosive: 1
   explosionStats: {fileID: 0}
   damageMultiplier: 1
