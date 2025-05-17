@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    [SerializeField] Vector2 startPos;
-    [SerializeField] Vector2 endPos;
+    [SerializeField] Vector2[] positions;
     [SerializeField] float moveTime = 1f;
-
-    Vector2 _start;
-    Vector2 _end;
-    bool _at_start = true;
+    int _current = 0;
     bool _usable = true;
     bool _is_moving = false;
+    int _total_pos;
 
     float _move_progress = 0f;
+    Vector2[] global_pos;
 
     void Start()
     {
-        _start = new Vector2(transform.position.x, transform.position.y) + startPos;
-        _end = new Vector2(transform.position.x, transform.position.y) + endPos;
+        _total_pos = positions.Length;
+        Vector2 myPos_2D = new Vector2(transform.position.x, transform.position.y);
+        global_pos = new Vector2[_total_pos];
+        for (int i = 0; i < _total_pos; i++) global_pos[i] = positions[i] + myPos_2D;
     }
 
     // Update is called once per frame
@@ -29,15 +29,16 @@ public class MovingPlatform : MonoBehaviour
         if(!_is_moving) return;
         _move_progress += Time.deltaTime;
         float blend = GetBlendFactor();
-        if(!_at_start) blend = 1 - blend;
-        
+
+        Vector2 _start = global_pos[_current];
+        Vector2 _end = global_pos[(_current + 1) % _total_pos];
         transform.position = Vector2.Lerp(_start, _end, blend);
         if(_move_progress >= moveTime){
             // Reset
             _usable = true;
             _is_moving = false;
             _move_progress = 0f;
-            _at_start = !_at_start;
+            _current = (_current + 1) % _total_pos;
         }
     }
 
@@ -77,12 +78,26 @@ public class MovingPlatform : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        _start = new Vector2(transform.position.x, transform.position.y) + startPos;
-        _end = new Vector2(transform.position.x, transform.position.y) + endPos;
-        Gizmos.DrawLine(_start, _end);
-        Gizmos.DrawCube(_start, 0.25f * Vector3.one);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawCube(_end, 0.25f * Vector3.one);
+        Gizmos.color = Color.black;
+        _total_pos = positions.Length;
+        global_pos = new Vector2[_total_pos];
+        Vector2 myPos_2D = new Vector2(transform.position.x, transform.position.y);
+        for (int i = 0; i < _total_pos; i++) global_pos[i] = positions[i] + myPos_2D;
+
+        for (int i = 0; i < _total_pos; i++)
+        {
+            if (i != _total_pos - 1)
+            {
+                Color old = Gizmos.color;
+                Gizmos.color = Color.white;
+                Gizmos.DrawLine(global_pos[i], global_pos[i + 1]);
+                Gizmos.color = old;
+            }
+            Gizmos.DrawCube(global_pos[i], 0.25f * Vector3.one);
+            float rgb = (float)(i + 2f) / (float)_total_pos;
+            Color new_col = new Color(rgb, rgb, rgb, 1);
+            Gizmos.color = new_col;
+        }
     }
 
     float GetBlendFactor(){

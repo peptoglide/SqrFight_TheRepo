@@ -4826,7 +4826,7 @@ GameObject:
   - component: {fileID: 4993957716831973201}
   - component: {fileID: 4993957716831973200}
   - component: {fileID: -7247687224437265852}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HuoLong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
