@@ -80,7 +80,8 @@ GameObject:
   - component: {fileID: 1228478205}
   - component: {fileID: 1228478206}
   - component: {fileID: 1257132502}
-  m_Layer: 13
+  - component: {fileID: 278895674089453997}
+  m_Layer: 0
   m_Name: Pull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,6 +139,26 @@ PointEffector2D:
   m_ForceMode: 0
   m_Drag: 0
   m_AngularDrag: 0
+--- !u!114 &278895674089453997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228478204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc53825da8562a64fb1621b7d5a512f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyAfterDelay: 0
+  destroyDelay: 0
+  damagePerSecond: -15
+  follow: {fileID: 0}
+  extraBurn: 0
+  burnDuration: 0
+  newFireDamage: 0
+  fire: {fileID: 0}
 --- !u!1 &3337722730026958225
 GameObject:
   m_ObjectHideFlags: 0

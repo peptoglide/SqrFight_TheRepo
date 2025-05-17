@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0b98bc279f74e4baf53a5a6fcb7c0d, type: 3}
   m_Name: Javelins
   m_EditorClassIdentifier: 
-  gunName: Javelins
+  gunName: Explosive Bow
   bullet: {fileID: 150274708032642692, guid: c1ec4831b4bc35147a0e3048e0742ac3, type: 3}
   lifetime: 5
   force: 22
