@@ -19,9 +19,14 @@ MonoBehaviour:
   damage: 5.5
   damageOffset: 1.5
   offset: 1.5
+  verticalAdd: 0
   shootDelay: 0.15
   reloadDelay: 3
-  clipSize: 35
+  clipSize: 25
   bulletPerClip: 1
   explosive: 0
   explosionStats: {fileID: 0}
+  tracking: 0
+  trackDelay: 0
+  trackTurnSpeed: 0
+  trackSpeed: 0

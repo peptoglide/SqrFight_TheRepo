@@ -14,14 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunName: Impulse
   bullet: {fileID: 150274708032642692, guid: 3c4f96afca371f64bb850a2ab12f23e1, type: 3}
-  lifetime: 2.25
+  lifetime: 4.5
   force: 20
   damage: 30
   damageOffset: 8
   offset: 2
+  verticalAdd: 0
   shootDelay: 2
   reloadDelay: 3
-  clipSize: 3
+  clipSize: 4
   bulletPerClip: 2
   explosive: 0
   explosionStats: {fileID: 0}
+  tracking: 0
+  trackDelay: 0
+  trackTurnSpeed: 0
+  trackSpeed: 0
