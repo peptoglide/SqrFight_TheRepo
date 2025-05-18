@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Barrel
   m_EditorClassIdentifier: 
   force: 65
-  radius: 5
+  radius: 4.5
   minDamage: 10
   maxDamage: 65

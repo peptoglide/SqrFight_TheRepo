@@ -229,11 +229,11 @@ MonoBehaviour:
     moveSpeed: 21
     counterMovementSpeed: 3
     jumpForce: 17
-    groundCastDist: 0.1
+    groundCastDist: 0.2
     jumpCount: 1
-    coyoteTime: 0.125
-    jumpDelay: 0.2
-    bufferDuration: 0.15
+    coyoteTime: 0.15
+    jumpDelay: 0.25
+    bufferDuration: 0.1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 576
