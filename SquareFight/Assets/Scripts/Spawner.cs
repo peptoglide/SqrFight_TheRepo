@@ -35,7 +35,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        bool can_spawn = Random.Range(0f, Application.targetFrameRate) * probDecrease < avgSpawnsPerSec;
+        bool can_spawn = Random.Range(0f, Application.targetFrameRate) * probDecrease < avgSpawnsPerSec * GameManager.instance.rateIncrease;
         if (!can_spawn) return;
 
         int to_spawn = GetRandomItem();
@@ -64,8 +64,9 @@ public class Spawner : MonoBehaviour
     void Spawn(int index)
     {
         Vector3 spawnPos = GetValidPosition();
+        if (spawnPos.x == -1800) return;
 
-        GameObject obj = Instantiate(spawns[index].obj, transform.position + spawnPos, Quaternion.identity);
+        GameObject obj = Instantiate(spawns[index].obj, spawnPos, Quaternion.identity);
         if (spawns[index].addForce && obj.TryGetComponent(out Rigidbody2D rb))
         {
             rb.AddForce(spawns[index].additionalForce * Random.insideUnitCircle, ForceMode2D.Impulse);
@@ -79,16 +80,13 @@ public class Spawner : MonoBehaviour
         Vector3 spawnPos;
         do
         {
-            spawnPos = spawnZone.center + new Vector3(Random.Range(-spawnZone.extents.x, spawnZone.extents.x),
-                    Random.Range(-spawnZone.extents.y, spawnZone.extents.y), 0f);
+            spawnPos = new Vector3(Random.Range(-spawnZone.extents.x, spawnZone.extents.x),
+                    Random.Range(-spawnZone.extents.y, spawnZone.extents.y), 0f) + transform.position;
             iterations++;
-        } while (iterations <= 100 && WithinWall(spawnPos));
+        } while (iterations <= 100 && !_manager.ValidPosition(spawnPos));
+        
+        if (!_manager.ValidPosition(spawnPos)) return new Vector3(-1800, 0, 0);
         return spawnPos;
-    }
-
-    bool WithinWall(Vector3 spawnPos)
-    {
-        return Physics2D.OverlapCircle(spawnPos, 3f, _manager.whatIsGround);
     }
 
     private void OnDrawGizmosSelected()

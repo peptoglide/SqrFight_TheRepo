@@ -62,6 +62,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 16448
+  mapZone:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 20, y: 11, z: 0}
   redScoreText: {fileID: 0}
   blueScoreText: {fileID: 0}
   damageMultiplierText: {fileID: 0}

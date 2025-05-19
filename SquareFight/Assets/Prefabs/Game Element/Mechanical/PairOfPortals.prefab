@@ -50,3 +50,4 @@ MonoBehaviour:
     m_Extent: {x: 25, y: 15, z: 0}
   inactiveTimeAfterUse: 0.2
   lifetime: 15
+  portalSpace: 10

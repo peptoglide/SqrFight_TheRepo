@@ -72,5 +72,5 @@ MonoBehaviour:
   spawnZone:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 17.5, y: 4.84, z: 1}
-  avgSpawnsPerSec: 0.4
+  avgSpawnsPerSec: 0.15
   probDecrease: 1.2

@@ -16,12 +16,17 @@ MonoBehaviour:
   bullet: {fileID: 150274708032642692, guid: c6d8cb3a92b1f7a4db908ac163256baf, type: 3}
   lifetime: 3
   force: 30
-  damage: 35
+  damage: 25
   damageOffset: 5
   offset: 0
+  verticalAdd: 0
   shootDelay: 1.5
   reloadDelay: 3
   clipSize: 5
   bulletPerClip: 1
   explosive: 0
   explosionStats: {fileID: 0}
+  tracking: 0
+  trackDelay: 0
+  trackTurnSpeed: 0
+  trackSpeed: 0

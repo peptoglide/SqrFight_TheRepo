@@ -8,6 +8,7 @@ public class PortalManager : MonoBehaviour
     [SerializeField] Bounds spawnZone;
     [SerializeField] float inactiveTimeAfterUse = 1f;
     [SerializeField] float lifetime = 6f;
+    [SerializeField] float portalSpace = 12.5f; // Min distance between two portals
     GameManager _manager;
     Portal portal1, portal2;
     // Start is called before the first frame update
@@ -15,11 +16,18 @@ public class PortalManager : MonoBehaviour
     {
         _manager = GameManager.instance;
         // Immediately find two positions
-        Vector3 spawnPos1 = GetValidPosition();
+        Vector3 spawnPos1 = GetValidPosition(false, transform.position);
+        Vector3 spawnPos2 = GetValidPosition(true, spawnPos1);
+        if (!_manager.ValidPosition(spawnPos1) || !_manager.ValidPosition(spawnPos2))
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         portal1 = Instantiate(portal, spawnPos1, transform.rotation).GetComponent<Portal>();
         portal1.portalManager = this;
 
-        Vector3 spawnPos2 = GetValidPosition();
+        
         portal2 = Instantiate(portal, spawnPos2, transform.rotation).GetComponent<Portal>();
         portal2.portalManager = this;
 
@@ -38,22 +46,19 @@ public class PortalManager : MonoBehaviour
 
     }
 
-    Vector3 GetValidPosition()
+    Vector3 GetValidPosition(bool hasOther, Vector3 otherPortal)
     {
         // Prevent softlocks
         int iterations = 0;
-        Vector3 spawnPos;
+        Vector3 spawnPos = transform.position;
         do
         {
-            spawnPos = spawnZone.center + new Vector3(Random.Range(-spawnZone.extents.x, spawnZone.extents.x),
+            spawnPos = transform.position + new Vector3(Random.Range(-spawnZone.extents.x, spawnZone.extents.x),
                     Random.Range(-spawnZone.extents.y, spawnZone.extents.y), 0f);
             iterations++;
-        } while (iterations <= 100 && WithinWall(spawnPos));
+        } while (iterations <= 100 && !_manager.ValidPosition(spawnPos) && (!hasOther || Vector3.Distance(spawnPos, otherPortal) <= portalSpace));
+        
         return spawnPos;
-    }
-    bool WithinWall(Vector3 spawnPos)
-    {
-        return Physics2D.OverlapCircle(spawnPos, 3f, _manager.whatIsGround);
     }
 
     /// <summary>
