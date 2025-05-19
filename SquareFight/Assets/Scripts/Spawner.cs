@@ -25,9 +25,11 @@ public class Spawner : MonoBehaviour
     [Tooltip("Spawn rate is divided by this, or, spawn rate gets reduced by this many times")]
     public float probDecrease = 1f;
 
+    GameManager _manager;
+
     void Start()
     {
-
+        _manager = GameManager.instance;
     }
 
     // Update is called once per frame
@@ -61,14 +63,32 @@ public class Spawner : MonoBehaviour
 
     void Spawn(int index)
     {
-        Vector3 spawnPos = spawnZone.center + new Vector3(Random.Range(-spawnZone.extents.x, spawnZone.extents.x),
-                    Random.Range(-spawnZone.extents.y, spawnZone.extents.y), 0f);
+        Vector3 spawnPos = GetValidPosition();
 
         GameObject obj = Instantiate(spawns[index].obj, transform.position + spawnPos, Quaternion.identity);
         if (spawns[index].addForce && obj.TryGetComponent(out Rigidbody2D rb))
         {
             rb.AddForce(spawns[index].additionalForce * Random.insideUnitCircle, ForceMode2D.Impulse);
         }
+    }
+
+    Vector3 GetValidPosition()
+    {
+        // Prevent softlocks
+        int iterations = 0;
+        Vector3 spawnPos;
+        do
+        {
+            spawnPos = spawnZone.center + new Vector3(Random.Range(-spawnZone.extents.x, spawnZone.extents.x),
+                    Random.Range(-spawnZone.extents.y, spawnZone.extents.y), 0f);
+            iterations++;
+        } while (iterations <= 100 && WithinWall(spawnPos));
+        return spawnPos;
+    }
+
+    bool WithinWall(Vector3 spawnPos)
+    {
+        return Physics2D.OverlapCircle(spawnPos, 3f, _manager.whatIsGround);
     }
 
     private void OnDrawGizmosSelected()

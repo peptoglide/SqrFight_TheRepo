@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public float globalDamageMultiplier = 1f;
 
     public float rateIncrease = 2f;
+    public LayerMask whatIsGround;
 
     // Scores
     public int redScore { get; private set; }

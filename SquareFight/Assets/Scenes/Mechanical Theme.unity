@@ -18257,10 +18257,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1393006389}
     m_Modifications:
-    - target: {fileID: 3323164741893747450, guid: fce43cbf04a93d24c93a111c6b2aa123, type: 3}
-      propertyPath: stats
-      value: 
-      objectReference: {fileID: 11400000, guid: cc73c85798ec789449feec29ef60c090, type: 2}
     - target: {fileID: 3323164741893747451, guid: fce43cbf04a93d24c93a111c6b2aa123, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -18578,7 +18574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 901462764614371484, guid: 53f7128b97b0f2141b38028427f97ec7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53f7128b97b0f2141b38028427f97ec7, type: 3}
@@ -24030,7 +24026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 901462764614371484, guid: 53f7128b97b0f2141b38028427f97ec7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53f7128b97b0f2141b38028427f97ec7, type: 3}
@@ -24719,7 +24715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6632773388051561550, guid: 701268deb76c9c046a0d3600ad53f5ca, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6632773388051561551, guid: 701268deb76c9c046a0d3600ad53f5ca, type: 3}
       propertyPath: m_RootOrder
@@ -24767,7 +24763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6632773389203548055, guid: 701268deb76c9c046a0d3600ad53f5ca, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6632773389203548055, guid: 701268deb76c9c046a0d3600ad53f5ca, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.data[1].x
