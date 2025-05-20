@@ -98,7 +98,7 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.black;
         _total_pos = positions.Length;

@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    moveSpeed: 21
+    moveSpeed: 23
     counterMovementSpeed: 3
     jumpForce: 17
     groundCastDist: 0.2

@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DamageManipulator : MonoBehaviour
 {
-    // Modifies the damage output of passing bullets
+    [SerializeField] TextMeshPro damageText; // Displays multiplier
     [SerializeField] float damageMultiplier = 1f;
     void Start()
     {
-        
+        if (damageText != null) damageText.SetText($"x{damageMultiplier}");
     }
 
     // Update is called once per frame
