@@ -103,6 +103,8 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 5, y: 0}
   moveTime: 1.1
+  launchObjects: 1
+  momentumCarry: 0.5
 --- !u!61 &5838710097825686018
 BoxCollider2D:
   m_ObjectHideFlags: 0

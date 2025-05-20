@@ -14,18 +14,34 @@ public class MovingPlatform : MonoBehaviour
     float _move_progress = 0f;
     Vector2[] global_pos;
 
+    // Whether platforms launch objects off
+    [Header("Launching")]
+    [SerializeField] bool launchObjects;
+    [Tooltip("Fraction of momentum carried to object")]
+    [SerializeField] float momentumCarry;
+
+    Vector2 _velocity;
+    Vector2 _lastPos;
+    float transferDelay = 0.15f; // Delay between each transfer to prevent momentum duplication
+    float transferTimer = 0f;
+
     void Start()
     {
         _total_pos = positions.Length;
         Vector2 myPos_2D = new Vector2(transform.position.x, transform.position.y);
         global_pos = new Vector2[_total_pos];
         for (int i = 0; i < _total_pos; i++) global_pos[i] = positions[i] + myPos_2D;
+
+        _lastPos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(moveTime == 0f) return; // To the future bitches who wish an explosion on my computer
+        transferTimer += Time.deltaTime;
+        _velocity = ((Vector2)transform.position - _lastPos) / Time.deltaTime;
+        _lastPos = transform.position;
+        if (moveTime == 0f) return; // To the future bitches who wish an explosion on my computer
         if(!_is_moving) return;
         _move_progress += Time.deltaTime;
         float blend = GetBlendFactor();
@@ -63,10 +79,16 @@ public class MovingPlatform : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out Rigidbody2D rb) && collision.transform.parent == transform){
+        if (collision.TryGetComponent(out Rigidbody2D rb) && collision.transform.parent == transform)
+        {
             // Set parent
             collision.transform.parent = null;
             rb.freezeRotation = false; // Rotation sucks with scale
+            if (launchObjects && transferTimer >= transferDelay)
+            {
+                rb.AddForce(_velocity * momentumCarry, ForceMode2D.Impulse);
+                transferTimer = 0f;
+            }
         }
         if(collision.TryGetComponent(out InputManager input_manager)){
             collision.transform.parent = null;
