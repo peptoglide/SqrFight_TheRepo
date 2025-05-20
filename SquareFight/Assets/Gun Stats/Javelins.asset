@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0b98bc279f74e4baf53a5a6fcb7c0d, type: 3}
+  m_Name: Javelins
+  m_EditorClassIdentifier: 
+  gunName: Explosive Bow
+  bullet: {fileID: 150274708032642692, guid: c1ec4831b4bc35147a0e3048e0742ac3, type: 3}
+  lifetime: 5
+  force: 20
+  damage: 2.5
+  damageOffset: 0
+  offset: 0
+  verticalAdd: 12
+  shootDelay: 0.1
+  reloadDelay: 3
+  clipSize: 4
+  bulletPerClip: 1
+  explosive: 1
+  explosionStats: {fileID: 11400000, guid: c1823fce111834f4e883af58b228ead8, type: 2}
+  tracking: 1
+  trackDelay: 0.2
+  trackTurnSpeed: 14
+  trackSpeed: 20

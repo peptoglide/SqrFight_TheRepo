@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playSound: 1
+  destroyOnCollision: 1
   stats: {fileID: 0}
   eff: {fileID: 0}
   effLifetime: 2.5
@@ -287,11 +288,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyAfterDelay: 0
   destroyDelay: 0
-  damagePerSecond: 7
+  damagePerSecond: 2
   follow: {fileID: 0}
   extraBurn: 1
   burnDuration: 4
-  newFireDamage: 5
+  newFireDamage: 2.5
   fire: {fileID: 1614751623414584384, guid: d36d668eb13ea764a81b365f7cd138db, type: 3}
 --- !u!1 &5484852146463918026
 GameObject:

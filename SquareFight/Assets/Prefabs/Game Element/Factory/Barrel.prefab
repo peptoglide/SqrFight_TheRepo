@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 372609842486458376}
   - component: {fileID: 372609842486458379}
   - component: {fileID: 372609842486458378}
-  m_Layer: 11
+  m_Layer: 6
   m_Name: Barrel
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -174,14 +174,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.1
+  m_Mass: 0.6
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1001 &1228511322266148076
 PrefabInstance:

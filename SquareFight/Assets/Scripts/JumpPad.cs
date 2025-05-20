@@ -6,7 +6,8 @@ public class JumpPad : MonoBehaviour
 {
     public float force;
     public ParticleSystem particles;
-    public bool resetVel = true;
+    [SerializeField] bool resetXVelocity = true;
+    [SerializeField] bool resetYVelocity = true;
 
     public bool playSound = true;
     public bool onlyPlayWhenPlayer = true;
@@ -26,10 +27,14 @@ public class JumpPad : MonoBehaviour
     {
         if(collision.TryGetComponent(out Rigidbody2D rb))
         {
-            if (resetVel)
+            if (resetXVelocity)
             {
-                rb.velocity = Vector2.zero;
+                rb.velocity = new Vector2(0, rb.velocity.y);
             }
+            if(resetYVelocity){
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+            }
+            
             rb.AddForce(force * transform.up, ForceMode2D.Impulse);
             if(particles != null)
             {

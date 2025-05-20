@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Potion
   m_EditorClassIdentifier: 
   force: 90
-  radius: 7
+  radius: 6
   minDamage: 12
   maxDamage: 50

@@ -46,26 +46,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawns:
   - obj: {fileID: 6523172538145107452, guid: 587fa7aee944f8d4894f04d704020eeb, type: 3}
-    probability: 0.01
+    probability: 11
     addForce: 0
     additionalForce: 0
   - obj: {fileID: 6523172538145107452, guid: 9da4f95fefe0c6749bbe6c0b0aef9317, type: 3}
-    probability: 0.025
+    probability: 10
     addForce: 0
     additionalForce: 0
   - obj: {fileID: 6523172538145107452, guid: 9414185357578f645b4edc15436835a7, type: 3}
-    probability: 0.05
+    probability: 21
     addForce: 0
     additionalForce: 0
   - obj: {fileID: 6523172538145107452, guid: 278d03765cdfc1141939cb834b7de56e, type: 3}
-    probability: 0.08
+    probability: 25
     addForce: 0
     additionalForce: 0
   - obj: {fileID: 372609842486458388, guid: 938d9961262a2a047803cd03d0f8d162, type: 3}
-    probability: 0.175
+    probability: 33
     addForce: 0
     additionalForce: 0
   spawnZone:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 6, y: 3.5, z: 1}
-  probDenominator: 1
+  avgSpawnsPerSec: 0.14
+  probDecrease: 1

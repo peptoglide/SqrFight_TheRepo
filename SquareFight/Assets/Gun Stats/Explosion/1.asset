@@ -15,4 +15,4 @@ MonoBehaviour:
   force: 30
   radius: 2.25
   minDamage: 4
-  maxDamage: 25
+  maxDamage: 20

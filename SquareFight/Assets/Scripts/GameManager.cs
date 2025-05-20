@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     public float globalDamageMultiplier = 1f;
 
     public float rateIncrease = 2f;
+    public LayerMask whatIsGround;
+    [SerializeField] Bounds mapZone;
 
     // Scores
     public int redScore { get; private set; }
@@ -42,6 +44,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     GunDisplay gunNameRed;
     GunDisplay gunNameBlue;
+
+    public float time_elapsed { get; private set; }
 
     int turns;
     void Awake()
@@ -70,7 +74,7 @@ public class GameManager : MonoBehaviour
 
         // Assign correct display for each player
         GunDisplay[] gunNames = FindObjectsOfType<GunDisplay>();
-        foreach(GunDisplay display in gunNames)
+        foreach (GunDisplay display in gunNames)
         {
             if (display.team == Team.Red) gunNameRed = display;
             else gunNameBlue = display;
@@ -82,12 +86,13 @@ public class GameManager : MonoBehaviour
             maps[mapIndex].SetActive(true);
         }
         else maps[Random.Range(0, maps.Length)].SetActive(true);
+        time_elapsed = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        time_elapsed += Time.deltaTime;
     }
 
     public void CountRedScore(int redScoreNumber)
@@ -130,7 +135,7 @@ public class GameManager : MonoBehaviour
         if (team == Team.Neutral) return;
         if (gunNameRed == null || gunNameBlue == null || ammoCounterBlue == null || ammoCounterRed == null) return;
 
-        if(team == Team.Red)
+        if (team == Team.Red)
         {
             gunNameRed.ClearText();
             ammoCounterRed.SetText("");
@@ -157,5 +162,21 @@ public class GameManager : MonoBehaviour
             gunNameBlue.UpdateText(stats.gunName);
             ammoCounterBlue.SetText(currentMag.ToString() + "/" + stats.clipSize.ToString());
         }
+    }
+
+    /// <summary>
+    /// Take exact 3D position
+    /// </summary>
+    /// <param name="pos"></param>
+    /// <returns></returns>
+    public bool ValidPosition(Vector3 pos)
+    {
+        return !Physics2D.OverlapCircle(pos, .5f, whatIsGround);
+    }
+    
+    private void OnDrawGizmos()
+    {
+        Vector3 drawPos = transform.position + mapZone.center;
+        Gizmos.DrawWireCube(drawPos, mapZone.size);
     }
 }

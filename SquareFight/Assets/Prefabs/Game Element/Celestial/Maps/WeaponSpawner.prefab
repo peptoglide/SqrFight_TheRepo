@@ -46,46 +46,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawns:
   - obj: {fileID: 3323164741893747453, guid: f6e4f8ff003b261469335436a0a85e9e, type: 3}
-    probability: 0.002
+    probability: 2.4375
     addForce: 0
     additionalForce: 0
   - obj: {fileID: 3323164741893747453, guid: ddb38461123df5345b117582b4237741, type: 3}
-    probability: 0.008
+    probability: 2.925
     addForce: 0
     additionalForce: 0
   - obj: {fileID: 3323164741893747453, guid: 03bd18c543367844fa28974531480897, type: 3}
-    probability: 0.02
-    addForce: 0
-    additionalForce: 0
-  - obj: {fileID: 3323164741893747453, guid: 05418bf866bc106449ee7b5c44e3e576, type: 3}
-    probability: 0.0215
+    probability: 2.4375
     addForce: 0
     additionalForce: 0
   - obj: {fileID: 3323164741893747453, guid: 00d51280eb25bfe449bfe3c7a9185a47, type: 3}
-    probability: 0.035
+    probability: 4.3875
+    addForce: 0
+    additionalForce: 0
+  - obj: {fileID: 3323164741893747453, guid: 05418bf866bc106449ee7b5c44e3e576, type: 3}
+    probability: 4.875
     addForce: 0
     additionalForce: 0
   - obj: {fileID: 3323164741893747453, guid: 888247a4a40e2114a8f90e7c2d60dfe2, type: 3}
-    probability: 0.05
+    probability: 7.3125
     addForce: 0
     additionalForce: 0
   - obj: {fileID: 3323164741893747453, guid: 9851f82b6543db0468d9e27177e0db21, type: 3}
-    probability: 0.07
+    probability: 14.625
     addForce: 0
     additionalForce: 0
   - obj: {fileID: 3323164741893747453, guid: bc842b9fdbb1ac94c86248f86ed956b1, type: 3}
-    probability: 0.1
+    probability: 19.5
     addForce: 0
     additionalForce: 0
   - obj: {fileID: 3323164741893747453, guid: d0dcd5a968b3d844b81b91689595c8b3, type: 3}
-    probability: 0.12
+    probability: 19.5
     addForce: 0
     additionalForce: 0
   - obj: {fileID: 3323164741893747453, guid: fce43cbf04a93d24c93a111c6b2aa123, type: 3}
-    probability: 0.14
+    probability: 19.5
+    addForce: 0
+    additionalForce: 0
+  - obj: {fileID: 3323164741893747453, guid: 6c5f15fddd2428e479694e495d0fe2a2, type: 3}
+    probability: 2.5
     addForce: 0
     additionalForce: 0
   spawnZone:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 19.02, y: 6.29, z: 1}
+  avgSpawnsPerSec: 0.2
   probDecrease: 1.2
