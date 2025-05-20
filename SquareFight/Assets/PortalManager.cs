@@ -10,10 +10,12 @@ public class PortalManager : MonoBehaviour
     [SerializeField] float lifetime = 6f;
     [SerializeField] float portalSpace = 12.5f; // Min distance between two portals
     GameManager _manager;
+    LineRenderer _line_renderer;
     Portal portal1, portal2;
     // Start is called before the first frame update
     void Start()
     {
+        _line_renderer = GetComponent<LineRenderer>();
         _manager = GameManager.instance;
         // Immediately find two positions
         Vector3 spawnPos1 = GetValidPosition(false, transform.position);
@@ -41,9 +43,12 @@ public class PortalManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-
+        if (_line_renderer == null) return;
+        _line_renderer.positionCount = 2;
+        _line_renderer.SetPosition(0, portal1.transform.position);
+        _line_renderer.SetPosition(1, portal2.transform.position);
     }
 
     Vector3 GetValidPosition(bool hasOther, Vector3 otherPortal)

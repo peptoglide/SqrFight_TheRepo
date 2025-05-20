@@ -465,7 +465,7 @@ MonoBehaviour:
     jumpForce: 17
     groundCastDist: 0.2
     jumpCount: 1
-    coyoteTime: 0.15
+    coyoteTime: 0.2
     jumpDelay: 0.25
     bufferDuration: 0.1
   whatIsGround:

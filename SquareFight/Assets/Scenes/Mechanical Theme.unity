@@ -20791,7 +20791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6632773388051561550, guid: 701268deb76c9c046a0d3600ad53f5ca, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6632773388051561551, guid: 701268deb76c9c046a0d3600ad53f5ca, type: 3}
       propertyPath: m_RootOrder
@@ -20839,7 +20839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6632773389203548055, guid: 701268deb76c9c046a0d3600ad53f5ca, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6632773389203548055, guid: 701268deb76c9c046a0d3600ad53f5ca, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.data[1].x
