@@ -20,27 +20,46 @@ public class MovingPlatform : MonoBehaviour
     [Tooltip("Fraction of momentum carried to object")]
     [SerializeField] float momentumCarry;
 
+    [Header("Telegraphing")]
+    [SerializeField] GameObject stopIndicator;
+    [SerializeField] bool showAll = true; // Whether to show all stops or just the current start and end
+
     Vector2 _velocity;
     Vector2 _lastPos;
-    float transferDelay = 0.15f; // Delay between each transfer to prevent momentum duplication
+    float transferDelay = .15f; // Delay between each transfer to prevent momentum duplication
     float transferTimer = 0f;
+    LineRenderer _lineRenderer;
 
     void Start()
     {
         _total_pos = positions.Length;
         Vector2 myPos_2D = new Vector2(transform.position.x, transform.position.y);
         global_pos = new Vector2[_total_pos];
+
+        _lineRenderer = GetComponent<LineRenderer>();
         for (int i = 0; i < _total_pos; i++) global_pos[i] = positions[i] + myPos_2D;
 
-        _lastPos = transform.position;
+        if (showAll)
+        {
+            for (int i = 0; i < _total_pos; i++)
+            {
+                if(stopIndicator != null) Instantiate(stopIndicator, global_pos[i], Quaternion.identity);
+            }
+            // Display lines
+            if (_lineRenderer == null) return;
+            _lineRenderer.positionCount = _total_pos;
+            for (int i = 0; i < _total_pos; i++)
+            {
+                _lineRenderer.SetPosition(i, global_pos[i]);
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         transferTimer += Time.deltaTime;
-        _velocity = ((Vector2)transform.position - _lastPos) / Time.deltaTime;
-        _lastPos = transform.position;
+        _velocity = Vector2.zero;
         if (moveTime == 0f) return; // To the future bitches who wish an explosion on my computer
         if(!_is_moving) return;
         _move_progress += Time.deltaTime;
@@ -49,7 +68,11 @@ public class MovingPlatform : MonoBehaviour
         Vector2 _start = global_pos[_current];
         Vector2 _end = global_pos[(_current + 1) % _total_pos];
         transform.position = Vector2.Lerp(_start, _end, blend);
-        if(_move_progress >= moveTime){
+        
+        // Fix velocity for better consistency
+        _velocity = 1.15f * (_end - _start) / moveTime;
+        if (_move_progress >= moveTime)
+        {
             // Reset
             _usable = true;
             _is_moving = false;

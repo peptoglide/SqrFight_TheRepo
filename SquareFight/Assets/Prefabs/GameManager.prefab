@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infinite: 1
   turnsPerMatch: 5
-  doubleDamagePhase: 45
-  tripleDamagePhase: 75
+  doubleDamagePhase: 75
+  tripleDamagePhase: 125
   maps:
   - {fileID: 0}
   - {fileID: 0}
