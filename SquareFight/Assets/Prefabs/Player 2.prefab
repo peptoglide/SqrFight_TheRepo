@@ -463,7 +463,7 @@ MonoBehaviour:
     moveSpeed: 23
     counterMovementSpeed: 3
     jumpForce: 17
-    groundCastDist: 0.2
+    groundCastDist: 0.1
     jumpCount: 1
     coyoteTime: 0.2
     jumpDelay: 0.25
@@ -472,7 +472,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 576
   groundCheckPos: {x: 0, y: -0.5}
-  groundCheckRadius: 0.4
+  groundCheckRadius: 0.49
   team: 0
   gun: {fileID: 134270052483785305}
   boxCastAngle: 0
