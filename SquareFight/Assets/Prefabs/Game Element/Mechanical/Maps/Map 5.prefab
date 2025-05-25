@@ -16009,6 +16009,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6632773388051561551}
     m_Modifications:
+    - target: {fileID: 5838710097825686017, guid: fe640c7c182bf4d408e3bc0499b5c887, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 5838710097825686019, guid: fe640c7c182bf4d408e3bc0499b5c887, type: 3}
       propertyPath: moveTime
       value: 0.35
@@ -16093,7 +16097,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1}
+  m_Offset: {x: -0.25, y: -1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -16118,6 +16122,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6632773388051561551}
     m_Modifications:
+    - target: {fileID: 5838710097825686017, guid: fe640c7c182bf4d408e3bc0499b5c887, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 5838710097825686019, guid: fe640c7c182bf4d408e3bc0499b5c887, type: 3}
       propertyPath: moveTime
       value: 0.35
@@ -16202,7 +16210,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1}
+  m_Offset: {x: 0.25, y: -1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
