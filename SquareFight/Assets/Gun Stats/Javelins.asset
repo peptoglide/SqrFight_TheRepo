@@ -28,5 +28,5 @@ MonoBehaviour:
   explosionStats: {fileID: 11400000, guid: c1823fce111834f4e883af58b228ead8, type: 2}
   tracking: 1
   trackDelay: 0.2
-  trackTurnSpeed: 14
+  trackTurnSpeed: 14.5
   trackSpeed: 20

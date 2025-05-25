@@ -34,12 +34,14 @@ public class Movement : MonoBehaviour
     float _time_off_ground = 0f;
     float _time_not_jumped = 0f;
     float _time_since_last_jump_press = 0f;
-    Rigidbody2D rb ;
+    Rigidbody2D rb;
 
     // Testing
     public float boxCastAngle = 90f;
+    float x_scale;
 
     Vector2 checkPos;
+    Transform other_player;
 
     void Start()
     {
@@ -54,6 +56,13 @@ public class Movement : MonoBehaviour
         _time_off_ground = 0f;
         _time_not_jumped = 0f;
         _time_since_last_jump_press = 0f;
+
+        x_scale = transform.lossyScale.x;
+        Movement[] players = FindObjectsOfType<Movement>();
+        foreach (Movement p in players)
+        {
+            if (p.team != team) other_player = p.transform;
+        }
     }
 
     // Update is called once per frame
@@ -114,7 +123,11 @@ public class Movement : MonoBehaviour
 
     bool IsGrounded()
     {
-        return Physics2D.CircleCast(rb.position + groundCheckPos, groundCheckRadius, Vector2.down, 0f, whatIsGround);
+        bool grounded = Physics2D.CircleCast(rb.position + groundCheckPos, groundCheckRadius, Vector2.down, 0f, whatIsGround);
+        Vector2 diff = (Vector2)other_player.position - (rb.position + groundCheckPos);
+        bool on_other_player = false;
+        if (diff.y < 0f && diff.y >= -other_player.lossyScale.y - groundCheckRadius && Mathf.Abs(diff.x) <= x_scale) on_other_player = true;
+        return on_other_player || grounded;
     }
 
     private void OnDrawGizmosSelected()
