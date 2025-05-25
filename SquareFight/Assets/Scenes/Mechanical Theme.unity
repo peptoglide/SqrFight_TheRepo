@@ -21878,7 +21878,7 @@ PrefabInstance:
       objectReference: {fileID: 1101890087}
     - target: {fileID: 299450418221300667, guid: d9547280840d34442b3985bcff486af2, type: 3}
       propertyPath: specifiedMap
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 299450418221300667, guid: d9547280840d34442b3985bcff486af2, type: 3}
       propertyPath: blueScoreText

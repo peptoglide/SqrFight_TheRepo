@@ -16015,11 +16015,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5838710097825686019, guid: fe640c7c182bf4d408e3bc0499b5c887, type: 3}
       propertyPath: moveTime
-      value: 0.35
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5838710097825686019, guid: fe640c7c182bf4d408e3bc0499b5c887, type: 3}
       propertyPath: momentumCarry
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5838710097825686019, guid: fe640c7c182bf4d408e3bc0499b5c887, type: 3}
       propertyPath: positions.Array.data[1].x
@@ -16128,11 +16128,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5838710097825686019, guid: fe640c7c182bf4d408e3bc0499b5c887, type: 3}
       propertyPath: moveTime
-      value: 0.35
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5838710097825686019, guid: fe640c7c182bf4d408e3bc0499b5c887, type: 3}
       propertyPath: momentumCarry
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5838710097825686019, guid: fe640c7c182bf4d408e3bc0499b5c887, type: 3}
       propertyPath: positions.Array.data[1].x

@@ -57,7 +57,6 @@ public class Movement : MonoBehaviour
         _time_not_jumped = 0f;
         _time_since_last_jump_press = 0f;
 
-        x_scale = transform.lossyScale.x;
         Movement[] players = FindObjectsOfType<Movement>();
         foreach (Movement p in players)
         {
@@ -124,9 +123,14 @@ public class Movement : MonoBehaviour
     bool IsGrounded()
     {
         bool grounded = Physics2D.CircleCast(rb.position + groundCheckPos, groundCheckRadius, Vector2.down, 0f, whatIsGround);
-        Vector2 diff = (Vector2)other_player.position - (rb.position + groundCheckPos);
         bool on_other_player = false;
-        if (diff.y < 0f && diff.y >= -other_player.lossyScale.y - groundCheckRadius && Mathf.Abs(diff.x) <= x_scale) on_other_player = true;
+
+        if (other_player != null)
+        {
+            Vector2 diff = (Vector2)other_player.position - (rb.position + groundCheckPos);
+            if (diff.y < 0f && diff.y >= -other_player.lossyScale.y - groundCheckRadius && Mathf.Abs(diff.x) <= transform.lossyScale.x) on_other_player = true;
+        }
+        
         return on_other_player || grounded;
     }
 
