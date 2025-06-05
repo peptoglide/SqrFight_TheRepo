@@ -41,11 +41,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI ammoCounterRed;
     [SerializeField] TextMeshProUGUI ammoCounterBlue;
 
+    [Header("Scene Loader")]
+    [SerializeField] int menuSceneIndex;
+
     public static GameManager instance;
     GunDisplay gunNameRed;
     GunDisplay gunNameBlue;
 
     public float time_elapsed { get; private set; }
+    int times = 0;
 
     int turns;
     void Awake()
@@ -93,6 +97,14 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         time_elapsed += Time.deltaTime;
+        if (Input.GetButtonDown("Menu"))
+        {
+            times++;
+        }
+        if (times >= 2)
+        {
+            SceneManager.LoadScene(menuSceneIndex);
+        }
     }
 
     public void CountRedScore(int redScoreNumber)
